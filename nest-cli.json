@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "projects": {
+    "product-lib": {
+      "type": "library",
+      "root": "libs/product-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/product-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/product-lib/tsconfig.lib.json"
+      }
+    },
+    "interits-lib": {
+      "type": "library",
+      "root": "libs/interits-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/interits-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/interits-lib/tsconfig.lib.json"
+      }
+    },
+    "doc-signer-lib": {
+      "type": "library",
+      "root": "libs/doc-signer-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/doc-signer-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/doc-signer-lib/tsconfig.lib.json"
+      }
+    },
+    "gcore": {
+      "type": "library",
+      "root": "libs/gcore",
+      "entryFile": "index",
+      "sourceRoot": "libs/gcore/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/gcore/tsconfig.lib.json"
+      }
+    },
+    "bot-telegram": {
+      "type": "library",
+      "root": "libs/bot-telegram",
+      "entryFile": "index",
+      "sourceRoot": "libs/bot-telegram/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/bot-telegram/tsconfig.lib.json"
+      }
+    },
+    "g99-logs-lib": {
+      "type": "library",
+      "root": "libs/g99-logs-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/g99-logs-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/g99-logs-lib/tsconfig.lib.json"
+      }
+    },
+    "g99-payment-lib": {
+      "type": "library",
+      "root": "libs/g99-payment-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/g99-payment-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/g99-payment-lib/tsconfig.lib.json"
+      }
+    },
+    "ocs-gateway-lib": {
+      "type": "library",
+      "root": "libs/ocs-gateway-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/ocs-gateway-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/ocs-gateway-lib/tsconfig.lib.json"
+      }
+    },
+    "fcm-lib": {
+      "type": "library",
+      "root": "libs/fcm-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/fcm-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/fcm-lib/tsconfig.lib.json"
+      }
+    },
+    "fpt-ai": {
+      "type": "library",
+      "root": "libs/fpt-ai",
+      "entryFile": "index",
+      "sourceRoot": "libs/fpt-ai/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/fpt-ai/tsconfig.lib.json"
+      }
+    },
+    "izota": {
+      "type": "library",
+      "root": "libs/izota",
+      "entryFile": "index",
+      "sourceRoot": "libs/izota/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/izota/tsconfig.lib.json"
+      }
+    },
+    "new-ai": {
+      "type": "library",
+      "root": "libs/new-ai",
+      "entryFile": "index",
+      "sourceRoot": "libs/new-ai/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/new-ai/tsconfig.lib.json"
+      }
+    },
+    "ocr-247": {
+      "type": "library",
+      "root": "libs/ocr-247",
+      "entryFile": "index",
+      "sourceRoot": "libs/ocr-247/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/ocr-247/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@app/product-lib/(.*)": "<rootDir>/../libs/product-lib/src/$1",
+    "@app/product-lib": "<rootDir>/../libs/product-lib/src",
+    "y/doc-signer-lib/(.*)": "<rootDir>/../libs/doc-signer-lib/src/$1",
+    "y/doc-signer-lib": "<rootDir>/../libs/doc-signer-lib/src",
+    "@app/doc-signer-lib/(.*)": "<rootDir>/../libs/doc-signer-lib/src/$1",
+    "@app/doc-signer-lib": "<rootDir>/../libs/doc-signer-lib/src",
+    "@app/gcore/(.*)": "<rootDir>/../libs/gcore/src/$1",
+    "@app/gcore": "<rootDir>/../libs/gcore/src",
+    "@app/bot-telegram/(.*)": "<rootDir>/../libs/bot-telegram/src/$1",
+    "@app/bot-telegram": "<rootDir>/../libs/bot-telegram/src",
+    "@app/g99-logs-lib/(.*)": "<rootDir>/../libs/g99-logs-lib/src/$1",
+    "@app/g99-logs-lib": "<rootDir>/../libs/g99-logs-lib/src",
+    "@app/g99-payment-lib/(.*)": "<rootDir>/../libs/g99-payment-lib/src/$1",
+    "@app/g99-payment-lib": "<rootDir>/../libs/g99-payment-lib/src",
+    "@app/ocs-gateway-lib/(.*)": "<rootDir>/../libs/ocs-gateway-lib/src/$1",
+    "@app/ocs-gateway-lib": "<rootDir>/../libs/ocs-gateway-lib/src",
+    "@app/fcm-lib/(.*)": "<rootDir>/../libs/fcm-lib/src/$1",
+    "@app/fcm-lib": "<rootDir>/../libs/fcm-lib/src",
+    "@app/fpt-ai/(.*)": "<rootDir>/../libs/fpt-ai/src/$1",
+    "@app/fpt-ai": "<rootDir>/../libs/fpt-ai/src",
+    "@app/izota/(.*)": "<rootDir>/../libs/izota/src/$1",
+    "@app/izota": "<rootDir>/../libs/izota/src",
+    "@app/new-ai/(.*)": "<rootDir>/../libs/new-ai/src/$1",
+    "@app/new-ai": "<rootDir>/../libs/new-ai/src",
+    "@app/ocr-247/(.*)": "<rootDir>/../libs/ocr-247/src/$1",
+    "@app/ocr-247": "<rootDir>/../libs/ocr-247/src"
+  }
+}

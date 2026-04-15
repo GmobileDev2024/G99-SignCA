@@ -1,0 +1,101 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@app/product-lib": [
+        "libs/product-lib/src"
+      ],
+      "@app/product-lib/*": [
+        "libs/product-lib/src/*"
+      ],
+      "@app/interits-lib": [
+        "libs/interits-lib/src"
+      ],
+      "@app/interits-lib/*": [
+        "libs/interits-lib/src/*"
+      ],
+      "@app/doc-signer-lib": [
+        "libs/doc-signer-lib/src"
+      ],
+      "@app/doc-signer-lib/*": [
+        "libs/doc-signer-lib/src/*"
+      ],
+      "@app/gcore": [
+        "libs/gcore/src"
+      ],
+      "@app/gcore/*": [
+        "libs/gcore/src/*"
+      ],
+      "@app/bot-telegram": [
+        "libs/bot-telegram/src"
+      ],
+      "@app/bot-telegram/*": [
+        "libs/bot-telegram/src/*"
+      ],
+      "@app/g99-logs-lib": [
+        "libs/g99-logs-lib/src"
+      ],
+      "@app/g99-logs-lib/*": [
+        "libs/g99-logs-lib/src/*"
+      ],
+      "@app/g99-payment-lib": [
+        "libs/g99-payment-lib/src"
+      ],
+      "@app/g99-payment-lib/*": [
+        "libs/g99-payment-lib/src/*"
+      ],
+      "@app/ocs-gateway-lib": [
+        "libs/ocs-gateway-lib/src"
+      ],
+      "@app/ocs-gateway-lib/*": [
+        "libs/ocs-gateway-lib/src/*"
+      ],
+      "@app/fcm-lib": [
+        "libs/fcm-lib/src"
+      ],
+      "@app/fcm-lib/*": [
+        "libs/fcm-lib/src/*"
+      ],
+      "@app/fpt-ai": [
+        "libs/fpt-ai/src"
+      ],
+      "@app/fpt-ai/*": [
+        "libs/fpt-ai/src/*"
+      ],
+      "@app/izota": [
+        "libs/izota/src"
+      ],
+      "@app/izota/*": [
+        "libs/izota/src/*"
+      ],
+      "@app/new-ai": [
+        "libs/new-ai/src"
+      ],
+      "@app/new-ai/*": [
+        "libs/new-ai/src/*"
+      ],
+      "@app/ocr-247": [
+        "libs/ocr-247/src"
+      ],
+      "@app/ocr-247/*": [
+        "libs/ocr-247/src/*"
+      ]
+    }
+  }
+}
