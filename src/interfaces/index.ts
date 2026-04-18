@@ -96,3 +96,57 @@ export type IOcrFaceID = {
     message: string
     request_id: string;
 }
+export interface IUserCertificate {
+  cert_id: string;
+  serial_number: string;
+  cert_status: string;
+  cert_status_code: string;
+  cert_valid_from: string;
+  cert_valid_to: string;
+  cert_data: string;
+  chain_data?: {
+    ca_cert?: string | null;
+    root_cert?: string | null;
+  } | null;
+  service_type?: string;
+  service_name?: string;
+  service_pricingcode?: string;
+  cert_subject?: string;
+  device?: any;
+  name?: string | null;
+}
+
+export interface ICertificateInfo {
+  status_code: number;
+  message: string;
+  transaction_id: string | null;
+  certificates: IUserCertificate[];
+}
+
+export interface ISignFileItem {
+  data_to_be_signed: string;
+  doc_id: string;
+  file_type: string;
+  sign_type: string;
+}
+
+export interface ISignResponse {
+  status_code: number;
+  message: string;
+  transaction_id: string | null;
+  tran_code?: string | null;
+  expired_in?: number | null;
+}
+
+export interface ITransactionSignature {
+  doc_id: string;
+  signature_value: string;
+  timestamp_signature?: string | null;
+}
+
+export interface ITransactionStatus {
+  status_code: number;
+  message: string;
+  transaction_id: string | null;
+  signatures: ITransactionSignature[];
+}

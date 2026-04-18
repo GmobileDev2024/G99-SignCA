@@ -22,3 +22,7 @@ export const mapDocumentToType = {
     "POLICE ID": "NA",
     "ARMY ID": "NA",
 };
+
+export enum CaDriverType {
+  VNPT_SMARTCA = 'VNPT_SMARTCA',
+}

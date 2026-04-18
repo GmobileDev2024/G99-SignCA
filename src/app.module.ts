@@ -11,6 +11,9 @@ import { OcrService } from './service/ocr.service';
 
 import { Ocr247Module } from '@app/ocr-247';
 import { Ocr247DriverService } from './service/driver/ocr-247-driver.service';
+import { VnptSmartCaLibModule } from 'libs/vnpt-smartca-lib/src/vnpt-smartca.module';
+import { VnptSmartCaDriverService } from './service/driver';
+import { CaService } from './service/ca.service';
 
 @Module({
   imports: [
@@ -19,12 +22,13 @@ import { Ocr247DriverService } from './service/driver/ocr-247-driver.service';
     }),
     CacheModule.register(),
     HttpModule,
-    Ocr247Module
+    Ocr247Module,
+    VnptSmartCaLibModule
   ],
   controllers: [
     AppController
   ],
-  providers: [AppService, OcrService, Ocr247DriverService],
+  providers: [AppService, OcrService, Ocr247DriverService, VnptSmartCaDriverService, CaService],
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {
