@@ -29,8 +29,8 @@ export class VnptSmartCaDriverService extends CaDriver {
       transactionId,
       serialNumber,
     );
-
-    if (r.status) return this.getCertificateModel(r.data);
+    console.log('getCertificate r :>> ', r);
+    if (r.status_code === 200) return this.getCertificateModel(r.data);
     return null;
   }
 
@@ -49,7 +49,7 @@ export class VnptSmartCaDriverService extends CaDriver {
   }): Promise<ISignResponse> {
     const r = await this.vnptSmartCaLibService.sign(payload);
 
-    if (r.status) return this.getSignResponseModel(r.data);
+    if (r.status_code === 200) return this.getSignResponseModel(r.data);
     return null;
   }
 
@@ -60,7 +60,7 @@ export class VnptSmartCaDriverService extends CaDriver {
       transactionId,
     );
 
-    if (r.status) return this.getTransactionStatusModel(r.data);
+    if (r.status_code === 200) return this.getTransactionStatusModel(r.data);
     return null;
   }
 

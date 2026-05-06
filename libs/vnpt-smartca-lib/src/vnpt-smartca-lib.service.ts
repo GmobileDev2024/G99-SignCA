@@ -6,12 +6,14 @@ export class VnptSmartCaLibService {
   private readonly serviceUrl: string;
   private readonly spId: string;
   private readonly spPassword: string;
+  private readonly userId: string;
 
   constructor(private readonly httpService: HttpService) {
     this.serviceUrl =
       process.env.VNPT_SMARTCA_URL || 'https://rmgateway.vnptit.vn/sca/sp769';
     this.spId = process.env.VNPT_SMARTCA_SP_ID || '4184-637127995547330633.apps.signserviceapi.com';
     this.spPassword = process.env.VNPT_SMARTCA_SP_PASSWORD || 'NGNhMzdmOGE-OGM2Mi00MTg0';
+    this.userId = process.env.VNPT_SMARTCA_SP_USERID || '123456789';
   }
 
   async getCertificate(userId: string, transactionId: string, serialNumber?: string) {
