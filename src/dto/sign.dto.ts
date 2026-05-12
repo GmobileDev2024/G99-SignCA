@@ -32,10 +32,6 @@ export class SignFileItemDto {
 }
 
 export class SignRequestDto {
-  @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
-  user_id: string;
 
   @ApiProperty()
   @IsString()

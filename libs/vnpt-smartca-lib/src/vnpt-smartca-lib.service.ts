@@ -10,17 +10,17 @@ export class VnptSmartCaLibService {
 
   constructor(private readonly httpService: HttpService) {
     this.serviceUrl =
-      process.env.VNPT_SMARTCA_URL || 'https://rmgateway.vnptit.vn/sca/sp769';
-    this.spId = process.env.VNPT_SMARTCA_SP_ID || '4184-637127995547330633.apps.signserviceapi.com';
-    this.spPassword = process.env.VNPT_SMARTCA_SP_PASSWORD || 'NGNhMzdmOGE-OGM2Mi00MTg0';
-    this.userId = process.env.VNPT_SMARTCA_SP_USERID || '123456789';
+      process.env.VNPT_SMARTCA_URL || 'https://gwsca.vnpt.vn/sca/sp769';
+    this.spId = process.env.VNPT_SMARTCA_SP_ID || '4928-639122778282408906.apps.smartcaapi.com';
+    this.spPassword = process.env.VNPT_SMARTCA_SP_PASSWORD || 'MGJmODZjYTc-YTBlNS00OTI4';
+    this.userId = process.env.VNPT_SMARTCA_SP_USERID || '001080003113';
   }
 
-  async getCertificate(userId: string, transactionId: string, serialNumber?: string) {
+  async getCertificate(transactionId: string, serialNumber?: string) {
     const body = {
       sp_id: this.spId,
       sp_password: this.spPassword,
-      user_id: userId,
+      user_id: this.userId,
       serial_number: serialNumber || '',
       transaction_id: transactionId,
     };
@@ -38,7 +38,6 @@ export class VnptSmartCaLibService {
   }
 
   async sign(payload: {
-    user_id: string;
     transaction_id: string;
     transaction_desc?: string;
     serial_number?: string;
@@ -53,7 +52,7 @@ export class VnptSmartCaLibService {
     const body = {
       sp_id: this.spId,
       sp_password: this.spPassword,
-      user_id: payload.user_id,
+      user_id: this.userId,
       transaction_id: payload.transaction_id,
       transaction_desc: payload.transaction_desc || '',
       serial_number: payload.serial_number || '',
@@ -61,6 +60,7 @@ export class VnptSmartCaLibService {
       sign_files: payload.sign_files,
     };
 
+    try {
     const res = await this.httpService.axiosRef.post(
       `${this.serviceUrl}/v1/signatures/sign`,
       body,
@@ -70,8 +70,16 @@ export class VnptSmartCaLibService {
       },
     );
 
-    return res.data;
+   return res.data;
+  } catch (e) {
+    console.log(
+      'SIGN ERROR RESPONSE:',
+      JSON.stringify(e.response?.data, null, 2),
+    );
+
+    throw e;
   }
+}
 
   async getTransactionStatus(transactionId: string) {
     const res = await this.httpService.axiosRef.post(

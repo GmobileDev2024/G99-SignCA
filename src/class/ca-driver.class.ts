@@ -15,7 +15,6 @@ export abstract class CaDriver {
   ): Promise<ICertificateInfo>;
 
   abstract sign(payload: {
-    user_id: string;
     transaction_id: string;
     transaction_desc?: string;
     serial_number?: string;

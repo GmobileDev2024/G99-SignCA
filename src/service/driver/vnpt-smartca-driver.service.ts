@@ -1,4 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+} from '@nestjs/common';
 import { VnptSmartCaLibService } from 'libs/vnpt-smartca-lib/src/vnpt-smartca-lib.service';
 import { CaDriver } from 'src/class/ca-driver.class';
 import {
@@ -20,22 +23,41 @@ export class VnptSmartCaDriverService extends CaDriver {
   }
 
   async getCertificate(
-    userId: string,
     transactionId: string,
     serialNumber?: string,
   ): Promise<ICertificateInfo> {
-    const r = await this.vnptSmartCaLibService.getCertificate(
-      userId,
-      transactionId,
-      serialNumber,
-    );
-    console.log('getCertificate r :>> ', r);
-    if (r.status_code === 200) return this.getCertificateModel(r.data);
-    return null;
+    try {
+      const r = await this.vnptSmartCaLibService.getCertificate(
+        transactionId,
+        serialNumber,
+      );
+
+      console.log(
+        'RAW GET CERTIFICATE RESPONSE:',
+        JSON.stringify(r, null, 2),
+      );
+
+      if (Number(r?.status_code) === 200) {
+        return this.getCertificateModel(r);
+      }
+
+      throw new BadRequestException({
+        message: r?.message || 'Get certificate failed',
+        data: r,
+      });
+    } catch (e) {
+      console.log(
+        'GET CERTIFICATE ERROR:',
+        JSON.stringify(e?.response?.data || e.message, null, 2),
+      );
+
+      throw new BadRequestException(
+        e?.response?.data || e.message,
+      );
+    }
   }
 
   async sign(payload: {
-    user_id: string;
     transaction_id: string;
     transaction_desc?: string;
     serial_number?: string;
@@ -47,21 +69,65 @@ export class VnptSmartCaDriverService extends CaDriver {
       sign_type: string;
     }>;
   }): Promise<ISignResponse> {
-    const r = await this.vnptSmartCaLibService.sign(payload);
+    try {
+      const r = await this.vnptSmartCaLibService.sign(payload);
 
-    if (r.status_code === 200) return this.getSignResponseModel(r.data);
-    return null;
+      console.log(
+        'RAW SIGN RESPONSE:',
+        JSON.stringify(r, null, 2),
+      );
+
+      if (Number(r?.status_code) === 200) {
+        return this.getSignResponseModel(r);
+      }
+
+      throw new BadRequestException({
+        message: r?.message || 'Sign failed',
+        data: r,
+      });
+    } catch (e) {
+      console.log(
+        'SIGN ERROR:',
+        JSON.stringify(e?.response?.data || e.message, null, 2),
+      );
+
+      throw new BadRequestException(
+        e?.response?.data || e.message,
+      );
+    }
   }
 
   async getTransactionStatus(
     transactionId: string,
   ): Promise<ITransactionStatus> {
-    const r = await this.vnptSmartCaLibService.getTransactionStatus(
-      transactionId,
-    );
+    try {
+      const r = await this.vnptSmartCaLibService.getTransactionStatus(
+        transactionId,
+      );
 
-    if (r.status_code === 200) return this.getTransactionStatusModel(r.data);
-    return null;
+      console.log(
+        'RAW GET TRANSACTION STATUS RESPONSE:',
+        JSON.stringify(r, null, 2),
+      );
+
+      if (Number(r?.status_code) === 200) {
+        return this.getTransactionStatusModel(r);
+      }
+
+      throw new BadRequestException({
+        message: r?.message || 'Get transaction status failed',
+        data: r,
+      });
+    } catch (e) {
+      console.log(
+        'GET TRANSACTION STATUS ERROR:',
+        JSON.stringify(e?.response?.data || e.message, null, 2),
+      );
+
+      throw new BadRequestException(
+        e?.response?.data || e.message,
+      );
+    }
   }
 
   getCertificateModel(data: any): ICertificateInfo {

@@ -38,7 +38,6 @@ export class CaService {
   }
 
   async sign(payload: {
-    user_id: string;
     transaction_id: string;
     transaction_desc?: string;
     serial_number?: string;

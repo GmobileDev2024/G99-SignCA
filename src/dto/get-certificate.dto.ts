@@ -2,10 +2,6 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class GetCertificateDto {
-  @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
-  user_id: string;
 
   @ApiProperty()
   @IsString()

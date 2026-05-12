@@ -16,7 +16,6 @@ export class AppService {
   }
   async getCertificate(dto: GetCertificateDto) {
     return this.caService.getCertificate(
-      dto.user_id,
       dto.transaction_id,
       dto.serial_number,
     );
