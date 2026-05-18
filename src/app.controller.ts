@@ -40,13 +40,15 @@ export class AppController extends BaseController {
         return this.send(r);
     }
 
-    @Get('sign/:transactionId/status')
+    @Post('sign/status')
     @ApiCreatedResponse({
-        description: 'Success',
-        type: CaTransactionStatusModel,
+    description: 'Success',
+    type: CaTransactionStatusModel,
     })
-    async getStatus(@Param('transactionId') transactionId: string) {
-        const r = await this.appService.getSignStatus(transactionId);
-        return this.send(r);
+    async getStatus(@Body() dto: { transactionId: string },
+    ) {
+    const r = await this.appService.getSignStatus(dto.transactionId);
+
+    return this.send(r);
     }
 }
